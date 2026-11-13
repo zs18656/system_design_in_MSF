@@ -1,0 +1,9 @@
+horizon,baseline,alternative,eligible,realism_gain,mse_cost,success
+1,ridge-recmo-8-rect-recmo-1,ridge-recmo-8-rect-recmo-8,True,-3.371325015394045e-16,0.0,False
+2,ridge-recmo-8-rect-recmo-8,ridge-recmo-1-rect-recmo-8,True,0.0017759396213149485,0.0005295597054232778,True
+3,ridge-recmo-1,ridge-recmo-1-rect-recmo-8,True,0.015925881051425755,0.00165839084128585,True
+4,ridge-recmo-1,ridge-recmo-1-rect-recmo-8,True,0.014260432833883906,0.0015810315730073043,True
+5,ridge-recmo-1-rect-recmo-1,ridge-recmo-1-rect-recmo-8,True,0.014695240103753053,0.001625837357653786,True
+6,ridge-recmo-1,ridge-recmo-8-rect-recmo-8,True,0.02084033299327749,0.0032774132648230496,True
+7,ridge-recmo-1-rect-recmo-1,ridge-recmo-8-rect-recmo-8,True,0.020795272589728946,0.005498293919619314,True
+8,ridge-recmo-1,ridge-recmo-1-rect-recmo-8,True,0.0195189866790406,0.005741367422890531,True

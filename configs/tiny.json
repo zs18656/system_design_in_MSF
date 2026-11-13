@@ -1,0 +1,55 @@
+{
+  "name": "tiny",
+  "context": 16,
+  "horizon": 8,
+  "split_fractions": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "generator": {
+    "name": "mackey_glass",
+    "parameters": {
+      "n_steps": 800,
+      "seed": 42,
+      "a": 0.1,
+      "gamma": 0.2,
+      "tau": 17,
+      "sigma_s": 0.05,
+      "sigma_e": 0.0,
+      "burn_in": 100,
+      "initial_state": 1.0
+    }
+  },
+  "fit_seeds": [
+    0
+  ],
+  "block_sizes": [
+    1,
+    8
+  ],
+  "rectifier_block_sizes": [
+    1,
+    8
+  ],
+  "models": {
+    "ridge": {
+      "alpha": 1.0
+    },
+    "mlp": {
+      "epochs": 2,
+      "hidden_layer_sizes": [
+        16
+      ],
+      "activation": "tanh",
+      "batch_size": 64,
+      "learning_rate_init": 0.002
+    }
+  },
+  "analysis": {
+    "selection_metric": "mse",
+    "epsilon": 0.05,
+    "search_seed": 7,
+    "search_repeats": 8
+  }
+}

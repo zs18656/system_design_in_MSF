@@ -1,0 +1,71 @@
+{
+  "task": "single_task",
+  "horizon": 16,
+  "process_noise_std": 0.05,
+  "candidate_count": 60,
+  "configuration_count": 60,
+  "origin_count": {
+    "train": 4153,
+    "val": 585,
+    "test": 1185
+  },
+  "selection_metric": "mse",
+  "chapter_5_validation_selection": {
+    "unrectified_recmo": {
+      "configuration_id": "mlp-recmo-16",
+      "configuration_count": 12,
+      "architecture": "mlp",
+      "block_size": 16,
+      "rectifier_block_size": null,
+      "mean_validation_loss": 0.010757007749229629,
+      "mean_test_loss": 0.011336620136670406,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.011336620136670406
+        }
+      ]
+    },
+    "expanded_recmo_recmo": {
+      "configuration_id": "mlp-recmo-16-rect-recmo-1",
+      "configuration_count": 60,
+      "architecture": "mlp",
+      "block_size": 16,
+      "rectifier_block_size": 1,
+      "mean_validation_loss": 0.010684280168235976,
+      "mean_test_loss": 0.011559967557279846,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.011559967557279846
+        }
+      ],
+      "test_loss_difference_vs_unrectified": 0.00022334742060944011,
+      "test_loss_ratio_vs_unrectified": 1.0197014117009162
+    }
+  },
+  "chapter_6_test_surface": {
+    "unrectified_configuration_count": 12,
+    "weighting": "equal configuration weight after averaging fit-seed losses",
+    "total_variance": 6.41775763470407e-05,
+    "component_variance": {
+      "architecture": 5.8094057116605306e-05,
+      "strategy": 3.1425565151659487e-06,
+      "interaction": 2.9409627152694245e-06
+    },
+    "fraction": {
+      "architecture": 0.9052080247228609,
+      "strategy": 0.04896658138307611,
+      "interaction": 0.045825393894062746
+    }
+  },
+  "chapter_7_retrospective_opportunity": {
+    "epsilon": 0.05,
+    "evaluated_horizons": 16,
+    "eligible_horizons": 16,
+    "horizons_with_defined_gain": 16,
+    "successful_horizons": 10,
+    "median_eligible_realism_gain": 0.060000401088433034,
+    "success_rate": 0.625
+  }
+}

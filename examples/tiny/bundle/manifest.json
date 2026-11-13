@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "sha256": {
+    "metadata.json": "7a4e1dac38d71c1b78f9a66ddecd39ceaeca8473254c4cee73445fdd8d195350",
+    "forecasts.npz": "27d4dc093b933c11cb0cab8aefef7cbb693fdb4de4d2107c7d149596b88ced80",
+    "metrics.csv": "bacea9289a2e95452b7bba7d1e6a5e16ab48c512528515e8ef47edcb8ec22432"
+  }
+}

@@ -1,0 +1,527 @@
+{
+  "config": {
+    "name": "tiny",
+    "context": 16,
+    "horizon": 8,
+    "split_fractions": [
+      0.7,
+      0.1,
+      0.2
+    ],
+    "generator": {
+      "name": "mackey_glass",
+      "parameters": {
+        "n_steps": 800,
+        "seed": 42,
+        "a": 0.1,
+        "gamma": 0.2,
+        "tau": 17,
+        "sigma_s": 0.05,
+        "sigma_e": 0.0,
+        "burn_in": 100,
+        "initial_state": 1.0
+      }
+    },
+    "fit_seeds": [
+      0
+    ],
+    "block_sizes": [
+      1,
+      8
+    ],
+    "models": {
+      "ridge": {
+        "alpha": 1.0
+      },
+      "mlp": {
+        "epochs": 2,
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      }
+    },
+    "analysis": {
+      "selection_metric": "mse",
+      "epsilon": 0.05,
+      "search_seed": 7,
+      "search_repeats": 8
+    },
+    "rectifier_block_sizes": [
+      1,
+      8
+    ]
+  },
+  "scaling": {
+    "mean": 0.9027035007943128,
+    "std": 0.2653624509111811,
+    "scale": 0.2653624509111811,
+    "boundaries": [
+      0,
+      560,
+      640,
+      800
+    ]
+  },
+  "sampling_interval": 1,
+  "origin_convention": "zero-based index of last observed value",
+  "forecast_units": "original observation units",
+  "versions": {
+    "reference": "0.2.0",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "scikit-learn": "1.8.0",
+    "threadpoolctl": "3.6.0"
+  },
+  "candidates": [
+    {
+      "candidate_id": "ridge-recmo-1-fit-0-point",
+      "configuration_id": "ridge-recmo-1",
+      "fit_id": "ridge-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": null
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "candidate_id": "ridge-recmo-1-rect-recmo-1-fit-0-point",
+      "configuration_id": "ridge-recmo-1-rect-recmo-1",
+      "fit_id": "ridge-recmo-1-rect-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 1,
+          "architecture": "ridge",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error"
+          },
+          "hyperparameters": {
+            "alpha": 1.0
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      },
+      "base_fit_id": "ridge-recmo-1-fit-0"
+    },
+    {
+      "candidate_id": "ridge-recmo-1-rect-recmo-8-fit-0-point",
+      "configuration_id": "ridge-recmo-1-rect-recmo-8",
+      "fit_id": "ridge-recmo-1-rect-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 8,
+          "architecture": "ridge",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error"
+          },
+          "hyperparameters": {
+            "alpha": 1.0
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      },
+      "base_fit_id": "ridge-recmo-1-fit-0"
+    },
+    {
+      "candidate_id": "ridge-recmo-8-fit-0-point",
+      "configuration_id": "ridge-recmo-8",
+      "fit_id": "ridge-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": null
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      }
+    },
+    {
+      "candidate_id": "ridge-recmo-8-rect-recmo-1-fit-0-point",
+      "configuration_id": "ridge-recmo-8-rect-recmo-1",
+      "fit_id": "ridge-recmo-8-rect-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 1,
+          "architecture": "ridge",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error"
+          },
+          "hyperparameters": {
+            "alpha": 1.0
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      },
+      "base_fit_id": "ridge-recmo-8-fit-0"
+    },
+    {
+      "candidate_id": "ridge-recmo-8-rect-recmo-8-fit-0-point",
+      "configuration_id": "ridge-recmo-8-rect-recmo-8",
+      "fit_id": "ridge-recmo-8-rect-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "ridge",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 8,
+          "architecture": "ridge",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error"
+          },
+          "hyperparameters": {
+            "alpha": 1.0
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error"
+      },
+      "hyperparameters": {
+        "alpha": 1.0
+      },
+      "base_fit_id": "ridge-recmo-8-fit-0"
+    },
+    {
+      "candidate_id": "mlp-recmo-1-fit-0-point",
+      "configuration_id": "mlp-recmo-1",
+      "fit_id": "mlp-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": null
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      }
+    },
+    {
+      "candidate_id": "mlp-recmo-1-rect-recmo-1-fit-0-point",
+      "configuration_id": "mlp-recmo-1-rect-recmo-1",
+      "fit_id": "mlp-recmo-1-rect-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 1,
+          "architecture": "mlp",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error",
+            "epochs": 2,
+            "solver": "adam"
+          },
+          "hyperparameters": {
+            "hidden_layer_sizes": [
+              16
+            ],
+            "activation": "tanh",
+            "batch_size": 64,
+            "learning_rate_init": 0.002
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      },
+      "base_fit_id": "mlp-recmo-1-fit-0"
+    },
+    {
+      "candidate_id": "mlp-recmo-1-rect-recmo-8-fit-0-point",
+      "configuration_id": "mlp-recmo-1-rect-recmo-8",
+      "fit_id": "mlp-recmo-1-rect-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 1
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 8,
+          "architecture": "mlp",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error",
+            "epochs": 2,
+            "solver": "adam"
+          },
+          "hyperparameters": {
+            "hidden_layer_sizes": [
+              16
+            ],
+            "activation": "tanh",
+            "batch_size": 64,
+            "learning_rate_init": 0.002
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      },
+      "base_fit_id": "mlp-recmo-1-fit-0"
+    },
+    {
+      "candidate_id": "mlp-recmo-8-fit-0-point",
+      "configuration_id": "mlp-recmo-8",
+      "fit_id": "mlp-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": null
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      }
+    },
+    {
+      "candidate_id": "mlp-recmo-8-rect-recmo-1-fit-0-point",
+      "configuration_id": "mlp-recmo-8-rect-recmo-1",
+      "fit_id": "mlp-recmo-8-rect-recmo-1-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 1,
+          "architecture": "mlp",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error",
+            "epochs": 2,
+            "solver": "adam"
+          },
+          "hyperparameters": {
+            "hidden_layer_sizes": [
+              16
+            ],
+            "activation": "tanh",
+            "batch_size": 64,
+            "learning_rate_init": 0.002
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      },
+      "base_fit_id": "mlp-recmo-8-fit-0"
+    },
+    {
+      "candidate_id": "mlp-recmo-8-rect-recmo-8-fit-0-point",
+      "configuration_id": "mlp-recmo-8-rect-recmo-8",
+      "fit_id": "mlp-recmo-8-rect-recmo-8-fit-0",
+      "fit_seed": 0,
+      "inference_seed": null,
+      "architecture": "mlp",
+      "strategy": {
+        "base": {
+          "family": "recmo",
+          "block_size": 8
+        },
+        "rectifier": {
+          "family": "recmo",
+          "block_size": 8,
+          "architecture": "mlp",
+          "fit_seed": 0,
+          "training": {
+            "loss": "squared_error",
+            "epochs": 2,
+            "solver": "adam"
+          },
+          "hyperparameters": {
+            "hidden_layer_sizes": [
+              16
+            ],
+            "activation": "tanh",
+            "batch_size": 64,
+            "learning_rate_init": 0.002
+          },
+          "residual": "base_forecast_minus_target",
+          "residual_split": "train"
+        }
+      },
+      "inference": "point",
+      "training": {
+        "loss": "squared_error",
+        "epochs": 2,
+        "solver": "adam"
+      },
+      "hyperparameters": {
+        "hidden_layer_sizes": [
+          16
+        ],
+        "activation": "tanh",
+        "batch_size": 64,
+        "learning_rate_init": 0.002
+      },
+      "base_fit_id": "mlp-recmo-8-fit-0"
+    }
+  ]
+}

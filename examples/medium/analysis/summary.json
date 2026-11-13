@@ -1,0 +1,87 @@
+{
+  "task": "three_noise_medium",
+  "horizon": 200,
+  "process_noise_std": 0.05,
+  "candidate_count": 140,
+  "configuration_count": 60,
+  "origin_count": {
+    "train": 3969,
+    "val": 401,
+    "test": 1001
+  },
+  "selection_metric": "mse",
+  "chapter_5_validation_selection": {
+    "unrectified_recmo": {
+      "configuration_id": "mlp-recmo-200",
+      "configuration_count": 12,
+      "architecture": "mlp",
+      "block_size": 200,
+      "rectifier_block_size": null,
+      "mean_validation_loss": 0.06112402578040407,
+      "mean_test_loss": 0.06057443762969811,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.06082581992372587
+        },
+        {
+          "seed": 1,
+          "loss": 0.06053603821323935
+        },
+        {
+          "seed": 2,
+          "loss": 0.060361454752129104
+        }
+      ]
+    },
+    "expanded_recmo_recmo": {
+      "configuration_id": "mlp-recmo-200",
+      "configuration_count": 60,
+      "architecture": "mlp",
+      "block_size": 200,
+      "rectifier_block_size": null,
+      "mean_validation_loss": 0.06112402578040407,
+      "mean_test_loss": 0.06057443762969811,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.06082581992372587
+        },
+        {
+          "seed": 1,
+          "loss": 0.06053603821323935
+        },
+        {
+          "seed": 2,
+          "loss": 0.060361454752129104
+        }
+      ],
+      "test_loss_difference_vs_unrectified": 0.0,
+      "test_loss_ratio_vs_unrectified": 1.0
+    }
+  },
+  "chapter_6_test_surface": {
+    "unrectified_configuration_count": 12,
+    "weighting": "equal configuration weight after averaging fit-seed losses",
+    "total_variance": 0.00040524752052442057,
+    "component_variance": {
+      "architecture": 0.00012084003990861461,
+      "strategy": 0.00011565481158281769,
+      "interaction": 0.00016875266903298804
+    },
+    "fraction": {
+      "architecture": 0.298188227659576,
+      "strategy": 0.2853930147016118,
+      "interaction": 0.41641875763881164
+    }
+  },
+  "chapter_7_retrospective_opportunity": {
+    "epsilon": 0.05,
+    "evaluated_horizons": 200,
+    "eligible_horizons": 196,
+    "horizons_with_defined_gain": 196,
+    "successful_horizons": 147,
+    "median_eligible_realism_gain": 0.057921201024708276,
+    "success_rate": 0.735
+  }
+}

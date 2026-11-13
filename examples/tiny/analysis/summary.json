@@ -1,0 +1,71 @@
+{
+  "task": "tiny",
+  "horizon": 8,
+  "process_noise_std": 0.05,
+  "candidate_count": 12,
+  "configuration_count": 12,
+  "origin_count": {
+    "train": 537,
+    "val": 73,
+    "test": 153
+  },
+  "selection_metric": "mse",
+  "chapter_5_validation_selection": {
+    "unrectified_recmo": {
+      "configuration_id": "ridge-recmo-1",
+      "configuration_count": 4,
+      "architecture": "ridge",
+      "block_size": 1,
+      "rectifier_block_size": null,
+      "mean_validation_loss": 0.0440869430105054,
+      "mean_test_loss": 0.028769556102708135,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.028769556102708135
+        }
+      ]
+    },
+    "expanded_recmo_recmo": {
+      "configuration_id": "ridge-recmo-1",
+      "configuration_count": 12,
+      "architecture": "ridge",
+      "block_size": 1,
+      "rectifier_block_size": null,
+      "mean_validation_loss": 0.0440869430105054,
+      "mean_test_loss": 0.028769556102708135,
+      "test_loss_by_seed": [
+        {
+          "seed": 0,
+          "loss": 0.028769556102708135
+        }
+      ],
+      "test_loss_difference_vs_unrectified": 0.0,
+      "test_loss_ratio_vs_unrectified": 1.0
+    }
+  },
+  "chapter_6_test_surface": {
+    "unrectified_configuration_count": 4,
+    "weighting": "equal configuration weight after averaging fit-seed losses",
+    "total_variance": 0.0006974440958362613,
+    "component_variance": {
+      "architecture": 0.0005401581420305069,
+      "strategy": 7.961194204797071e-05,
+      "interaction": 7.767401175778362e-05
+    },
+    "fraction": {
+      "architecture": 0.7744823495607018,
+      "strategy": 0.11414813391245796,
+      "interaction": 0.11136951652684018
+    }
+  },
+  "chapter_7_retrospective_opportunity": {
+    "epsilon": 0.05,
+    "evaluated_horizons": 8,
+    "eligible_horizons": 8,
+    "horizons_with_defined_gain": 8,
+    "successful_horizons": 7,
+    "median_eligible_realism_gain": 0.015310560577589404,
+    "success_rate": 0.875
+  }
+}

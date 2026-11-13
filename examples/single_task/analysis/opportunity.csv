@@ -1,0 +1,17 @@
+horizon,baseline,alternative,eligible,realism_gain,mse_cost,success
+1,mlp-recmo-1-rect-recmo-4,mlp-recmo-1-rect-recmo-1,True,0.18836306486632062,0.031759541903939016,True
+2,mlp-recmo-2-rect-recmo-16,mlp-recmo-4-rect-recmo-1,True,0.2740179639449921,0.015476620737031876,True
+3,mlp-recmo-4-rect-recmo-16,mlp-recmo-4-rect-recmo-1,True,0.20370588878417525,0.010412630148075318,True
+4,mlp-recmo-4-rect-recmo-16,mlp-recmo-4-rect-recmo-1,True,0.3780712689924772,0.042750912776803054,True
+5,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,-0.05724824311329157,0.006469646118746737,False
+6,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,0.045946475244547175,0.012851843386625934,True
+7,mlp-recmo-4-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,-0.03986421382373842,0.015064831450425384,False
+8,mlp-recmo-4-rect-recmo-16,mlp-recmo-2-rect-recmo-4,True,0.2842146963838163,0.034517362791146866,True
+9,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,-0.04444910818185676,0.01854313171740915,False
+10,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,-0.04165239753243905,0.024665538571816636,False
+11,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,0.12558453410184436,0.0177711319022769,True
+12,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,-0.002733949323084402,0.021427279898030088,False
+13,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,0.041617839817495915,0.019475808227541646,True
+14,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,0.07405432693231889,0.014329743922058304,True
+15,mlp-recmo-1-rect-recmo-16,mlp-recmo-2-rect-recmo-16,True,-0.17100099944132593,0.002022081228972,False
+16,mlp-recmo-2-rect-recmo-16,mlp-recmo-1-rect-recmo-16,True,0.11694436162485242,0.024179154531293948,True

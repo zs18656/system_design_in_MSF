@@ -1,0 +1,64 @@
+{
+  "name": "single_task",
+  "context": 32,
+  "horizon": 16,
+  "split_fractions": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "generator": {
+    "name": "mackey_glass",
+    "parameters": {
+      "n_steps": 6000,
+      "seed": 42,
+      "a": 0.1,
+      "gamma": 0.2,
+      "tau": 17,
+      "sigma_s": 0.05,
+      "sigma_e": 0.0,
+      "burn_in": 100,
+      "initial_state": 1.0
+    }
+  },
+  "fit_seeds": [
+    0
+  ],
+  "block_sizes": [
+    1,
+    2,
+    4,
+    16
+  ],
+  "rectifier_block_sizes": [
+    1,
+    2,
+    4,
+    16
+  ],
+  "models": {
+    "ridge": {
+      "alpha": 1.0
+    },
+    "mlp": {
+      "epochs": 40,
+      "hidden_layer_sizes": [
+        32,
+        32
+      ],
+      "activation": "tanh",
+      "batch_size": 128,
+      "learning_rate_init": 0.002
+    },
+    "tree": {
+      "max_depth": 8,
+      "min_samples_leaf": 8
+    }
+  },
+  "analysis": {
+    "selection_metric": "mse",
+    "epsilon": 0.05,
+    "search_seed": 7,
+    "search_repeats": 8
+  }
+}
